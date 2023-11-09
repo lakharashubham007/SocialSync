@@ -16,7 +16,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onChange" });
-  
+
   const onSubmit = async (data) => {};
 
   const [errMsg, setErrMsg] = useState("");
@@ -27,47 +27,46 @@ const Login = () => {
     <div className="bg-bgColor w-full h-screen flex items-center justify-center p-6">
       <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-primary rounded-xl overflow-hidden shadow-xl">
         {/* Left */}
-        <div className="w-full lg:w=1/2 h-full p-10 2xl:px-20 flex flex-col justify-center">
+        <div className="w-full lg:w-1/2 h-full p-10 2xl:px-20 flex flex-col justify-center">
           {/*Logo & App Name start*/}
           <div className="w-full flex gap-2 items-center mb-6">
-            <div className="p-2 bg-[#0866ff] rounded text-white">
+            <div className="p-2 bg-[#39B5E0] rounded text-white">
               <TbVersionsFilled />
             </div>
-            <span className="text-2xl text-[#0866ff] font-semibold">
+            <span className="text-2xl text-[#39B5E0] font-semibold">
               SocialSync
             </span>
           </div>
-          {/*Logo & App Name Ends*/}
+          {/*Login & Wellocme Message*/}
           <p className="text-ascent-1 text-base font-semibold">
             Login to your account
           </p>
           <span className="text-ascent-2 mt-2 text-sm">Welcome back</span>
           {/* Form starts Here */}
-
           <form
-            className='py-8 flex flex-col gap-5='
+            className="py-8 flex flex-col gap-5="
             onSubmit={handleSubmit(onSubmit)}
           >
             <TextInput
-              name='email'
-              placeholder='email@example.com'
-              label='Email Address'
-              type='email'
+              name="email"
+              placeholder="email@example.com"
+              label="Email Address"
+              type="email"
               register={register("email", {
                 required: "Email Address is required",
               })}
-              styles='w-full rounded-full'
-              labelStyle='ml-2'
+              styles="w-full rounded-full"
+              labelStyle="ml-2"
               error={errors.email ? errors.email.message : ""}
             />
 
             <TextInput
-              name='password'
-              label='Password'
-              placeholder='Password'
-              type='password'
-              styles='w-full rounded-full'
-              labelStyle='ml-2'
+              name="password"
+              label="Password"
+              placeholder="Password"
+              type="password"
+              styles="w-full rounded-full"
+              labelStyle="ml-2"
               register={register("password", {
                 required: "Password is required!",
               })}
@@ -75,8 +74,8 @@ const Login = () => {
             />
 
             <Link
-              to='/reset-password'
-              className='text-sm text-right text-blue font-semibold'
+              to="/reset-password"
+              className="text-sm text-right text-[#39B5E0] font-semibold"
             >
               Forgot Password ?
             </Link>
@@ -97,17 +96,25 @@ const Login = () => {
               <Loading />
             ) : (
               <CustomButton
-                type='submit'
-                containerStyles={`inline-flex justify-center rounded-md bg-blue px-8 py-3 text-sm font-medium text-white outline-none`}
-                title='Login'
+                type="submit"
+                containerStyles={`inline-flex justify-center rounded-md bg-[#39B5E0] px-8 py-3 text-sm font-medium text-white outline-none`}
+                title="Login"
               />
             )}
           </form>
-
           {/* Form End Here */}
+          <p className="text-ascent-2 text-sm text-center">
+            Don't have an account?
+            <Link
+              to="/register"
+              className="text-[#39B5E0] font-semibold ml-2 cursor-pointer"
+            >
+              Create Account
+            </Link>
+          </p>
         </div>
         {/* Right */}
-        <div className="hidden w-1/2 h-full lg:flex flex-col items-center justify-center bg-[#0866ff]">
+        <div className="hidden w-1/2 h-full lg:flex flex-col items-center justify-center bg-[#39B5E0]">
           <div className="relative w-full flex items-center justify-center">
             <img
               src={BgImage}
@@ -139,7 +146,7 @@ const Login = () => {
               Share memories with friends and the world.
             </span>
           </div>
-        </div>{" "}
+        </div>
       </div>
     </div>
   );
